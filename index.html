@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+    border-collapse: collapse;
+    margin: 1.2em auto;
+    width: 90%;
+    word-wrap: break-word;
+}
+
+thead {
+    background-color: #1560bd;
+    color: #ffffff;
+    text-align: left;
+}
+    </style>
+</head>
+<body>
+    <table class="table comments">
+        <thead>
+            <tr class="table-row">
+                <th class="table-head">
+                    <label
+                           for="select_all_checkboxes"
+                           class="visuallyhidden"
+                           >Select all checkboxes
+                    </label>
+                </th>
+                <th class="table-head">Date</th>
+                <th class="table-head">Approved</th>
+                <th class="table-head">Post Title</th>
+                <th class="table-head">Name</th>
+                <th class="table-head">Asnjera nga keto</th>
+                <th class="table-head">Nuk di</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr class="table-row">
+                <td class="table-data">
+                    <label class="visuallyhidden"
+                        >One</label
+                    >
+                   
+                </td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    id="none"
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data">
+                    <input
+                    id="none"
+                    type="checkbox"
+                    class="delete_checkbox"
+                />
+                </td>
+            </tr>
+
+            <tr class="table-row">
+                <td class="table-data">
+                    <label class="visuallyhidden"
+                        >Vodafone</label
+                    >
+                   
+                </td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    id="none"
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data">
+                    <input
+                    id="none"
+                    type="checkbox"
+                    class="delete_checkbox"
+                />
+                </td>
+            </tr>   
+
+            <tr class="table-row">
+                <td class="table-data">
+                    <label class="visuallyhidden"
+                        >AlbTelekom</label
+                    >
+                   
+                </td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data"> <input
+                    id="none"
+                    type="checkbox"
+                    class="delete_checkbox"
+                /></td>
+                <td class="table-data">
+                    <input
+                    id="none"
+                    type="checkbox"
+                    class="delete_checkbox"
+                />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input
+           id="multiple_deletion"
+           type="submit"
+           class="submit-input"
+           value="Delete"
+    /> 
+    <script>
+
+        
+            const tableRows = document.querySelectorAll('.table-row');
+
+            tableRows.forEach((row) => {
+                const ch = row.querySelectorAll('.delete_checkbox');
+                // const none = row.querySelectorAll('#none');                  
+                const divsArr = Array.from(ch);
+                // const none = row.querySelectorAll('#none');
+                // var arr = [].slice.call(row.cells)
+
+               // console.log("arr", arr)
+
+                // arr.forEach(el => {
+                //     const element = el.querySelectorAll("table-data")
+
+                //     console.log(el)
+
+                //     // if (innerHtml.includes("none")) {
+                //     //     console.log(innerHtml)
+                //     // }
+                // } )
+                console.log(ch);    
+                // console.log(none);
+                console.log(divsArr);
+                 divsArr.forEach((e)=>{               
+                    if(e.id == "none"){         
+                         e.addEventListener('change', () =>{
+                            divsArr.forEach(el =>{
+                                el.checked = false; 
+                                e.checked = true;
+                                e.addEventListener('change',() => {e.checked = false;})
+                            });
+                            
+                        });
+                    }
+
+                });
+        });
+                            
+                     
+                        // dontKnow.addEventListener('change',() =>{
+                        //     if(dontKnow.checked)
+                        //     otherCheckboxes.forEach(el => el.checked = false);
+                        //     none.checked = false;
+                        // });
+                        
+                    
+                
+            
+    
+        
+        // const btn = document.querySelector('#multiple_deletion');
+        // btn.addEventListener('click', checkBoxesForm);
+
+        
+    </script>
+</body>
+
+</html>
